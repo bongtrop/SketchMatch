@@ -1,6 +1,6 @@
-import cv2
 import numpy as np
 from enum import Enum
+from scipy import signal
 
 W = 0.9
 
@@ -8,12 +8,6 @@ class Kernal(Enum):
 	Dx = 1
 	Dy = 2
 	Dxy = 3
-
-class Keypoint:
-	def __init__(self, scale, position, des):
-		self.scale = scale
-		self.position = position
-		self.des = des
 
 def rgb2gray(rgb):
 	return np.dot(rgb[...,:3], [0.299, 0.587, 0.114])
@@ -147,13 +141,12 @@ def nonmaxima(octaves, th = 0.6):
 						if im[i,j]==m:
 							position = (j, i)
 							scale = period["scale"]
-							keypoint = Keypoint(scale, position, None)
-							res.append(keypoint)
+							res.append({"position": position, "scale": scale})
 
 	return res
 
-def detect(im, octave=3, period=4, scale=1.2):
-	imint = imintegral(im)
+def detect(im, octave=3, period=4, scale=1.2, hessian=0.6):
+	imint = imintegral(np.array(im))
 	s = scale2size(scale)
 	add = 6
 	octaves = []
@@ -165,28 +158,41 @@ def detect(im, octave=3, period=4, scale=1.2):
 
 		for j in range(period):
 			imres = discriminant(imint, ss)
-			print str(np.min(imres))+" "+str(np.max(imres))
 			periods.append({"scale": size2scale(s), "im":imres})
 			ss+=add
 
 		octaves.append(periods)
 		s+=add
-		add+=6
+		add*=2
 
-	return nonmaxima(octaves)
+	return nonmaxima(octaves, hessian)
 
-#im = cv2.imread("photo/photo/550610487.jpg", 0)
-#imres = cv2.imread("photo/photo/550610487.jpg")
+def extract(im, keypoints):
+	for keypoint in keypoints:
+		position = keypoint["position"]
+		scale = keypoint["scale"]
 
-im = cv2.imread("test2.png", 0)
-imres = cv2.imread("test2.png")
+		s = 20*scale
+		x = position[0]
+		y = position[1]
 
-keypoints = detect(im)
+		window = im[y-s/2:y+s/2, x-s/2:x+s/2]
 
-for keypoint in keypoints:
-	print str(keypoint.position) + " " + str(keypoint.scale)
-	cv2.circle(imres, keypoint.position, int(keypoint.scale*20), (0,0,255), 1)
-	cv2.circle(imres, keypoint.position, 2, (0,255,0), -1)
+		ks = int(2*scale)
+		kdx = np.ones((ks, ks), dtype=np.double)
+		kdx[:,:ks/2] = -1
+		kdy = np.ones((ks, ks), dtype=np.double)
+		kdy[:ks/2,:] = -1
 
-cv2.imshow("res", imres)
-cv2.waitKey(0)
+		des = []
+		ws = s/4
+
+		for i in range(4):
+			for j in range(4):
+				subwindow = window[i*ws:(i+1)*ws, j*ws:(j+1)*ws]
+				dx = signal.convolve2d(subwindow, kdx, mode='valid')
+				dy = signal.convolve2d(subwindow, kdy, mode='valid')
+
+				des+=[np.sum(dx), np.sum(dy), np.sum(np.abs(dx)), np.sum(np.abs(dy))]
+
+		keypoint["des"] = des

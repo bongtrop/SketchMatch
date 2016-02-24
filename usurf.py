@@ -1,4 +1,5 @@
 import numpy as np
+import math
 from enum import Enum
 from scipy import signal
 
@@ -119,13 +120,16 @@ def nonmaxima(octaves, th = 0.6):
 			period = octave[ii]
 			im = period["im"]
 
-			for i in range(im.shape[0]):
-				for j in range(im.shape[1]):
+			h = im.shape[0]
+			w = im.shape[1]
+
+			for i in range(h):
+				for j in range(w):
 					if im[i,j]>th:
 						top = max(0, i-1)
-						bottom = min(im.shape[0],i+2)
+						bottom = min(h,i+2)
 						left = max(0, j-1)
-						right = min(im.shape[1],j+2)
+						right = min(w,j+2)
 
 						m = 0
 						if ii>0:
@@ -138,14 +142,16 @@ def nonmaxima(octaves, th = 0.6):
 
 						m = max(m, np.max(im[top:bottom, left:right]))
 
-						if im[i,j]==m:
+						offset = int(period["scale"]*20)/2
+
+						if im[i,j]==m and j-offset>=0 and j+offset<w and i-offset>=0 and i+offset<h:
 							position = (j, i)
 							scale = period["scale"]
 							res.append({"position": position, "scale": scale})
 
 	return res
 
-def detect(im, octave=3, period=4, scale=1.2, hessian=0.6):
+def detect(im, octave=3, period=4, scale=1.2, hessian=0.4):
 	imint = imintegral(np.array(im))
 	s = scale2size(scale)
 	add = 6
@@ -190,9 +196,15 @@ def extract(im, keypoints):
 		for i in range(4):
 			for j in range(4):
 				subwindow = window[i*ws:(i+1)*ws, j*ws:(j+1)*ws]
+
 				dx = signal.convolve2d(subwindow, kdx, mode='valid')
 				dy = signal.convolve2d(subwindow, kdy, mode='valid')
 
 				des+=[np.sum(dx), np.sum(dy), np.sum(np.abs(dx)), np.sum(np.abs(dy))]
+
+		sumsq=math.sqrt(sum(x*x for x in des))
+
+		for i in range(len(des)):
+			des[i] = des[i]/sumsq
 
 		keypoint["des"] = des

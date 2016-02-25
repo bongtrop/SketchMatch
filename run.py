@@ -83,7 +83,7 @@ class IdentiFace(Resource):
 
             for i in range(min(10, len(datas))):
                 data = datas[i]
-                res.append({'id': data['id'], 'name': data['name'], 'sex': data['sex'], 'point': data['point']})
+                res.append({'id': data['id'], 'name': data['name'], 'sex': data['sex'], 'point': data['point']/len(keypoints)})
 
             request.responseHeaders.addRawHeader(b"content-type", b"application/json")
             return json.dumps({"status": "success", "data": res})

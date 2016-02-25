@@ -81,7 +81,7 @@ class IdentiFace(Resource):
 
             res = []
 
-            for i in range(10):
+            for i in range(min(10, len(datas))):
                 data = datas[i]
                 res.append({'id': data['id'], 'name': data['name'], 'sex': data['sex'], 'point': data['point']})
 

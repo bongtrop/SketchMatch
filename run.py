@@ -89,7 +89,7 @@ class IdentiFace(Resource):
                 ls = len(s)
                 for data in datas:
                     if data["dtype"]=="strgramma":
-                        data["point"] = strgramma.dist(s, data["string"])*1.0/ls
+                        data["point"] = ls*1.0/strgramma.dist(s, data["string"])
                     else:
                         data["point"] = 0.0
 

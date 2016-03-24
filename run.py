@@ -80,7 +80,7 @@ class IdentiFace(Resource):
 
                 for data in datas:
                     if data["dype"]!="strgramma":
-                        data["point"] = tool.match(keypoints, data["keypoints"])/lk
+                        data["point"] = tool.match(keypoints, data["keypoints"])*1.0/lk
                     else:
                         data["point"] = 0.0
 

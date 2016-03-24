@@ -72,6 +72,8 @@ class IdentiFace(Resource):
 
             im = tool.imread('logs/'+filename)
 
+            print img["algo"].value
+
             if img["algo"].value=="usurf":
                 keypoints = usurf.detect(im)
                 usurf.extract(im, keypoints)

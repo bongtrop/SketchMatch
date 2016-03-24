@@ -72,15 +72,15 @@ class IdentiFace(Resource):
 
             im = tool.imread('logs/'+filename)
 
-            print img["algo"].value
-
             if img["algo"].value=="usurf":
                 keypoints = usurf.detect(im)
                 usurf.extract(im, keypoints)
 
+                lk = len(keypoints)
+
                 for data in datas:
                     if data["dype"]!="strgramma":
-                        data["point"] = tool.match(keypoints, data["keypoints"])
+                        data["point"] = tool.match(keypoints, data["keypoints"])/lk
                     else:
                         data["point"] = 0.0
 
@@ -100,7 +100,7 @@ class IdentiFace(Resource):
 
             for i in range(min(10, len(datas))):
                 data = datas[i]
-                res.append({'id': data['id'], 'name': data['name'], 'sex': data['sex'], 'point': float(data['point'])/len(keypoints)})
+                res.append({'id': data['id'], 'name': data['name'], 'sex': data['sex'], 'point': float(data['point'])})
 
             request.responseHeaders.addRawHeader(b"content-type", b"application/json")
             return json.dumps({"status": "success", "data": res})

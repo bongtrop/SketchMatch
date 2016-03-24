@@ -1,35 +1,61 @@
 import cv2
 import tool
 import math
+import numpy as np
 
-def extract(im, ws=5, delta_bin=18, chars="abcdefghijklmnopqrstuvwxyz"):
-    e = cv2.Canny(im,100,200)
-    h, w = e.shape
+def gradient(im):
+    h = im.shape[0]
+    w = im.shape[1]
+
+    dist = np.zeros((h-1,w-1), dtype=np.double)
+    direct = np.zeros((h-1,w-1), dtype=np.double)
+
+    nim = np.array(im, dtype=np.int64)
+
+    for i in range(h-1):
+        for j in range(w-1):
+            dx = nim[i,j] - nim[i,j+1]
+            dy = nim[i,j] - nim[i+1,j]
+
+            dist[i,j] = math.sqrt(dx*dx + dy*dy)
+            r = math.atan2(dy, dx)
+
+            if r<0:
+                r = 2*math.pi + r
+
+            direct[i,j] = r
+
+    return dist, direct
+
+
+def hog(im, delta_bin):
+    dist, direct = gradient(im)
+    h = direct.shape[0]
+    w = direct.shape[1]
+
+    wbin = 360.0/delta_bin
+
+    hist = np.zeros(delta_bin, dtype=np.double)
+
+    for i in range(h):
+        for j in range(w):
+            delta = (direct[i, j]*180)/math.pi
+            hist[int(delta/wbin)] += dist[i, j]
+
+    return hist
+
+def extract(im, ws=10, delta_bin=18, chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRETUVWXYZ"):
+    h, w = im.shape
     res = ""
+
+    wbin = 360.0/delta_bin
 
     for i in range(0, h, ws):
         for j in range(0, w, ws):
-            window = e[i:i+ws, j:j+ws]
-
-            if window.shape[0]!=ws or window.shape[1]!=ws:
-                continue
-
-            window[1:ws-1, 1:ws-1] = 0
-
-            p = []
-
-            for ii in range(0, ws):
-                for jj in range(0, ws):
-                    if window[ii, jj]>0:
-                        p.append((ii, jj))
-
-            if len(p)>1:
-                start = p[0]
-                end = p[-1]
-
-                delta = math.atan2(end[0] - start[0], end[1]- start[1])
-                delta = abs((delta*180)/math.pi)
-                res+=chars[int(delta/delta_bin)]
+            window = im[i:i+ws, j:j+ws]
+            hist = hog(window, delta_bin)
+            if np.sum(hist)>0:
+                res+=chars[np.argmin(hist)]
 
     return res
 
@@ -51,19 +77,34 @@ def dist(a, b):
 
     return current[n]
 
+if __name__ == "__main__":
+    dataset = ['550610487.jpg', '550610488.jpg', '550610525.jpg', '550610530.jpg']
+    name = ['487', '488', '525', '530']
 
-dataset = ['550610487.jpg', '550610488.jpg', '550610525.jpg', '550610530.jpg']
+    f = open('res_test', 'w')
 
-f = open('res_test', 'w')
+    f.write("sid\t")
+    for n in name:
+        f.write(n+"\t")
 
-for d in dataset:
-    for dd in dataset:
-        im1 = tool.imread('test/head/'+d, draw=False)
-        im2 = tool.imread('test/input/'+dd, draw=True)
+    f.write("\n\n")
 
-        s1 = extract(im1)
-        s2 = extract(im2)
+    i = 0
 
-        s = d+" "+dd+" "+str(dist(s1, s2))
+    for d in dataset:
+        f.write(name[i]+"\t")
+        i+=1
+        for dd in dataset:
+            im1 = tool.imread('test/head/'+d, draw=False)
+            im2 = tool.imread('test/input/'+dd, draw=True)
 
-        f.write(s+"\r\n")
+            s1 = extract(im1)
+            s2 = extract(im2)
+
+            s = str(dist(s1, s2))
+
+            f.write(s+"\t")
+
+        f.write("\n")
+
+    f.close()

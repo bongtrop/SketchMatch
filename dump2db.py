@@ -1,6 +1,7 @@
 from model import dataset
 import tool
 import usurf
+import strgramma
 
 f = open('dataset/data', 'r')
 
@@ -16,6 +17,13 @@ for line in lines:
 
     print "Process sid " + sid
 
+    im_draw = tool.imread('dataset/'+sid+'.jpg', draw=True)
+    s = strgramma.extract(im_draw)
+
+    data = {'id': sid, 'sex': sex, 'name':name, 'dtype': 'strgramma', 'string': s}
+    dataset.add(data)
+    print "Extract String Gramma [Done]"
+    '''
     im_raw = tool.imread('dataset/'+sid+'.jpg')
 
     keypoints = usurf.detect(im_raw)
@@ -36,3 +44,4 @@ for line in lines:
 
     print "usurf draw "+ sid +" [DONE]"
     print ""
+    '''

@@ -16,6 +16,7 @@ from operator import itemgetter
 # My lib
 from model import dataset
 import usurf
+import strgramma
 import tool
 
 # Web Server
@@ -59,7 +60,7 @@ class IdentiFace(Resource):
             headers = self.headers,
             environ = {'REQUEST_METHOD':'POST', 'CONTENT_TYPE': self.headers['content-type']})
 
-        if img.has_key("image") and img.has_key("sex") and len(img["image"].value)>0:
+        if img.has_key("image") and img.has_key("sex") and len(img["image"].value)>0 and img.has_key("algo"):
             filename = gen_random_name(32)+'.jpg'
             sex = img["sex"].value
 
@@ -71,11 +72,25 @@ class IdentiFace(Resource):
 
             im = tool.imread('logs/'+filename)
 
-            keypoints = usurf.detect(im)
-            usurf.extract(im, keypoints)
+            if img["algo"].value=="usurf":
+                keypoints = usurf.detect(im)
+                usurf.extract(im, keypoints)
 
-            for data in datas:
-                data["point"] = tool.match(keypoints, data["keypoints"])
+                for data in datas:
+                    if data["dype"]!="strgramma":
+                        data["point"] = tool.match(keypoints, data["keypoints"])
+                    else:
+                        data["point"] = 0.0
+
+            else:
+                s = strgramma.extract(im)
+                ls = len(s)
+                for data in datas:
+                    if data["dtype"]=="strgramma":
+                        data["point"] = strgramma.dist(s, data["string"])*1.0/ls
+                    else:
+                        data["point"] = 0.0
+
 
             datas = sorted(datas, key=itemgetter('point'), reverse=True)
 

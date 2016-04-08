@@ -3,6 +3,8 @@ import tool
 import usurf
 import strgramma
 
+segments = ["eyebrows", "eyes", "jaw", "mouth", "nose"]
+
 f = open('dataset/data', 'r')
 
 lines = f.readlines()
@@ -17,14 +19,16 @@ for line in lines:
 
     print "Process sid " + sid
 
-    im_draw = tool.imread('dataset/'+sid+'.jpg', draw=True)
-    s = strgramma.extract(im_draw)
+    for segment in segments:
+        im_draw = tool.imread('dataset/segment/'+segment+sid[-3:]+'.png', draw=False)
+        s = strgramma.extract(im_draw)
 
-    data = {'id': sid, 'sex': sex, 'name':name, 'dtype': 'strgramma', 'string': s}
-    dataset.add(data)
+        data = {'id': sid, 'sex': sex, 'name':name, 'dtype': 'strgramma_'+segment, 'string': s}
+        dataset.add(data)
+
     print "Extract String Gramma [Done]"
-    '''
-    im_raw = tool.imread('dataset/'+sid+'.jpg')
+
+    im_raw = tool.imread('dataset/raw/'+sid+'.jpg')
 
     keypoints = usurf.detect(im_raw)
     usurf.extract(im_raw, keypoints)
@@ -34,7 +38,7 @@ for line in lines:
 
     print "usurf raw "+ sid +" [DONE]"
 
-    im_draw = tool.imread('dataset/'+sid+'.jpg', draw=True)
+    im_draw = tool.imread('dataset/raw/'+sid+'.jpg', draw=True)
 
     keypoints = usurf.detect(im_draw)
     usurf.extract(im_draw, keypoints)
@@ -44,4 +48,3 @@ for line in lines:
 
     print "usurf draw "+ sid +" [DONE]"
     print ""
-    '''

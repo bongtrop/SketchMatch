@@ -1,4 +1,3 @@
-import cv2
 import tool
 import math
 import numpy as np

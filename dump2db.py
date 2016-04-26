@@ -19,32 +19,26 @@ for line in lines:
 
     print "Process sid " + sid
 
+    strings = {}
+
     for segment in segments:
         im_draw = tool.imread('dataset/segment/'+segment+sid[-3:]+'.png', draw=False)
         s = strgramma.extract(im_draw)
+        strings[segment] = s
 
-        data = {'id': sid, 'sex': sex, 'name':name, 'dtype': 'strgramma_'+segment, 'string': s}
-        dataset.add(data)
 
-    print "Extract String Gramma [Done]"
-
-    im_raw = tool.imread('dataset/raw/'+sid+'.jpg')
-
-    keypoints = usurf.detect(im_raw)
-    usurf.extract(im_raw, keypoints)
-
-    data = {'id': sid, 'sex': sex, 'name':name, 'dtype': 'usurf_raw', 'keypoints': keypoints}
+    data = {'id': sid, 'sex': sex, 'name':name, 'dtype': 'strgramma', 'strings': strings}
     dataset.add(data)
 
-    print "usurf raw "+ sid +" [DONE]"
+    print "Extract String Gramma "+ sid +" [Done]"
 
-    im_draw = tool.imread('dataset/raw/'+sid+'.jpg', draw=True)
+    im_draw = tool.imread('dataset/raw/'+sid+'.jpg')
 
     keypoints = usurf.detect(im_draw)
     usurf.extract(im_draw, keypoints)
 
-    data = {'id': sid, 'sex': sex, 'name':name, 'dtype': 'usurf_draw', 'keypoints': keypoints}
+    data = {'id': sid, 'sex': sex, 'name':name, 'dtype': 'usurf', 'keypoints': keypoints}
     dataset.add(data)
 
-    print "usurf draw "+ sid +" [DONE]"
+    print "Extract usurf "+ sid +" [DONE]"
     print ""

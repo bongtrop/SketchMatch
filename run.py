@@ -79,7 +79,7 @@ class IdentiFace(Resource):
                 lk = len(keypoints)
 
                 for data in datas:
-                    if data["dtype"][:9]!="strgramma":
+                    if data["dtype"]=="usurf":
                         data["point"] = tool.match(keypoints, data["keypoints"])*1.0/lk
                     else:
                         data["point"] = 0.0

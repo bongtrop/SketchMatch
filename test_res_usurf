@@ -1,0 +1,5 @@
+Test parameter with [ octave=3, period=4, scale=1.200000, hessian=0.400000]
+Mean 5 rank [ recall=0.7469 precision=0.1494 f-measure=0.2490 fallout=0.1372 ]
+Mean 10 rank [ recall=0.8281 precision=0.0828 f-measure=0.1506 fallout=0.1346 ]
+Mean 15 rank [ recall=0.9094 precision=0.0606 f-measure=0.1137 fallout=0.1320 ]
+

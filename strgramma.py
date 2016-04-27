@@ -1,5 +1,6 @@
 import tool
 import math
+import cv2
 import numpy as np
 
 def gradient(im):
@@ -26,7 +27,6 @@ def gradient(im):
 
     return dist, direct
 
-
 def hog(im, delta_bin):
     dist, direct = gradient(im)
     h = direct.shape[0]
@@ -43,18 +43,82 @@ def hog(im, delta_bin):
 
     return hist
 
-def extract(im, ws=10, delta_bin=18, chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRETUVWXYZ"):
+def hogFunc(window, chars):
+    delta_bin = len(chars)
+    hist = hog(window, delta_bin)
+    if np.sum(hist)>0:
+        return chars[np.argmax(hist)]
+
+    return ""
+
+def slopeFunc(window, chars):
+    h = window.shape[0]
+    w = window.shape[1]
+
+    delta_bin = len(chars)
+    wbin = 360.0/delta_bin
+
+    pos = []
+    c = 0
+
+    for i in range(w):
+        if window[0, i]>0:
+            pos.append((0,i))
+            c+=1
+
+        if window[h-1, i]>0:
+            pos.append((h-1, i))
+            c+=1
+
+    for i in range(h):
+        if window[i, 0]>0:
+            pos.append((i,0))
+            c+=1
+
+        if window[i, w-1]>0:
+            pos.append((i, w-1))
+            c+=1
+
+    if c==2:
+        delta = (math.atan2(pos[0][0]-pos[1][0], pos[0][1]-pos[1][1]) + math.pi)*360.0/(2.0*math.pi)
+        if delta==360.0:
+            delta-=1
+
+
+        return chars[int(delta/wbin)]
+
+    return ""
+
+def extract(im, ws=10, step=0, delta_bin=18, chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRETUVWXYZ", algo="hog", dif=False, edge=False):
+    allalgo = ["hog", "slope"]
+    assert algo in allalgo, "algo false"
+    assert algo!="slope" or edge!=False, "slop use with edge only"
+
+    func = {"hog": hogFunc, "slope": slopeFunc}
+
+    if edge:
+        im = cv2.Canny(im,100,200)
+
     h, w = im.shape
     res = ""
 
-    wbin = 360.0/delta_bin
+    chars = chars[:delta_bin]
 
-    for i in range(0, h, ws):
-        for j in range(0, w, ws):
+    if step==0:
+        step = ws
+
+    for i in range(0, h, step):
+        for j in range(0, w, step):
             window = im[i:i+ws, j:j+ws]
-            hist = hog(window, delta_bin)
-            if np.sum(hist)>0:
-                res+=chars[np.argmin(hist)]
+            c = func[algo](window, chars)
+            res+=c
+
+    if dif:
+        res_tmp = res
+        res = ""
+        for i in range(len(res_tmp)-1):
+            d = abs(chars.index(res_tmp[i]) - chars.index(res_tmp[i]))
+            res+=chars[d]
 
     return res
 

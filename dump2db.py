@@ -32,7 +32,7 @@ for line in lines:
 
     print "Extract String Gramma "+ sid +" [Done]"
 
-    im_draw = tool.imread('dataset/raw/'+sid+'.jpg')
+    im_draw = tool.imread('dataset/raw/'+sid+'.jpg', draw=True)
 
     keypoints = usurf.detect(im_draw)
     usurf.extract(im_draw, keypoints)

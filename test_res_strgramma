@@ -1,0 +1,271 @@
+Test parameter with [ algo=slope, window size=9, delta bin=15, dif=False, edge=True ]
+Mean 5 rank [ recall=0.2031 precision=0.0406 f-measure=0.0677 fallout=0.1547 ]
+Mean 10 rank [ recall=0.3719 precision=0.0372 f-measure=0.0676 fallout=0.1493 ]
+Mean 15 rank [ recall=0.5031 precision=0.0335 f-measure=0.0629 fallout=0.1451 ]
+
+Test parameter with [ algo=slope, window size=9, delta bin=15, dif=True, edge=True ]
+Mean 5 rank [ recall=0.1812 precision=0.0362 f-measure=0.0604 fallout=0.1554 ]
+Mean 10 rank [ recall=0.3625 precision=0.0362 f-measure=0.0659 fallout=0.1496 ]
+Mean 15 rank [ recall=0.4969 precision=0.0331 f-measure=0.0621 fallout=0.1453 ]
+
+Test parameter with [ algo=slope, window size=9, delta bin=18, dif=False, edge=True ]
+Mean 5 rank [ recall=0.2031 precision=0.0406 f-measure=0.0677 fallout=0.1547 ]
+Mean 10 rank [ recall=0.3719 precision=0.0372 f-measure=0.0676 fallout=0.1493 ]
+Mean 15 rank [ recall=0.5031 precision=0.0335 f-measure=0.0629 fallout=0.1451 ]
+
+Test parameter with [ algo=slope, window size=9, delta bin=18, dif=True, edge=True ]
+Mean 5 rank [ recall=0.1812 precision=0.0362 f-measure=0.0604 fallout=0.1554 ]
+Mean 10 rank [ recall=0.3625 precision=0.0362 f-measure=0.0659 fallout=0.1496 ]
+Mean 15 rank [ recall=0.4969 precision=0.0331 f-measure=0.0621 fallout=0.1453 ]
+
+Test parameter with [ algo=slope, window size=9, delta bin=20, dif=False, edge=True ]
+Mean 5 rank [ recall=0.2031 precision=0.0406 f-measure=0.0677 fallout=0.1547 ]
+Mean 10 rank [ recall=0.3719 precision=0.0372 f-measure=0.0676 fallout=0.1493 ]
+Mean 15 rank [ recall=0.5031 precision=0.0335 f-measure=0.0629 fallout=0.1451 ]
+
+Test parameter with [ algo=slope, window size=9, delta bin=20, dif=True, edge=True ]
+Mean 5 rank [ recall=0.1812 precision=0.0362 f-measure=0.0604 fallout=0.1554 ]
+Mean 10 rank [ recall=0.3625 precision=0.0362 f-measure=0.0659 fallout=0.1496 ]
+Mean 15 rank [ recall=0.4969 precision=0.0331 f-measure=0.0621 fallout=0.1453 ]
+
+Test parameter with [ algo=slope, window size=11, delta bin=15, dif=False, edge=True ]
+Mean 5 rank [ recall=0.1750 precision=0.0350 f-measure=0.0583 fallout=0.1556 ]
+Mean 10 rank [ recall=0.4031 precision=0.0403 f-measure=0.0733 fallout=0.1483 ]
+Mean 15 rank [ recall=0.5344 precision=0.0356 f-measure=0.0668 fallout=0.1441 ]
+
+Test parameter with [ algo=slope, window size=11, delta bin=15, dif=True, edge=True ]
+Mean 5 rank [ recall=0.1500 precision=0.0300 f-measure=0.0500 fallout=0.1565 ]
+Mean 10 rank [ recall=0.3031 precision=0.0303 f-measure=0.0551 fallout=0.1515 ]
+Mean 15 rank [ recall=0.4531 precision=0.0302 f-measure=0.0566 fallout=0.1467 ]
+
+Test parameter with [ algo=slope, window size=11, delta bin=18, dif=False, edge=True ]
+Mean 5 rank [ recall=0.1750 precision=0.0350 f-measure=0.0583 fallout=0.1556 ]
+Mean 10 rank [ recall=0.4031 precision=0.0403 f-measure=0.0733 fallout=0.1483 ]
+Mean 15 rank [ recall=0.5344 precision=0.0356 f-measure=0.0668 fallout=0.1441 ]
+
+Test parameter with [ algo=slope, window size=11, delta bin=18, dif=True, edge=True ]
+Mean 5 rank [ recall=0.1500 precision=0.0300 f-measure=0.0500 fallout=0.1565 ]
+Mean 10 rank [ recall=0.3031 precision=0.0303 f-measure=0.0551 fallout=0.1515 ]
+Mean 15 rank [ recall=0.4531 precision=0.0302 f-measure=0.0566 fallout=0.1467 ]
+
+Test parameter with [ algo=slope, window size=11, delta bin=20, dif=False, edge=True ]
+Mean 5 rank [ recall=0.1750 precision=0.0350 f-measure=0.0583 fallout=0.1556 ]
+Mean 10 rank [ recall=0.4031 precision=0.0403 f-measure=0.0733 fallout=0.1483 ]
+Mean 15 rank [ recall=0.5344 precision=0.0356 f-measure=0.0668 fallout=0.1441 ]
+
+Test parameter with [ algo=slope, window size=11, delta bin=20, dif=True, edge=True ]
+Mean 5 rank [ recall=0.1500 precision=0.0300 f-measure=0.0500 fallout=0.1565 ]
+Mean 10 rank [ recall=0.3031 precision=0.0303 f-measure=0.0551 fallout=0.1515 ]
+Mean 15 rank [ recall=0.4531 precision=0.0302 f-measure=0.0566 fallout=0.1467 ]
+
+Test parameter with [ algo=slope, window size=13, delta bin=15, dif=False, edge=True ]
+Mean 5 rank [ recall=0.1906 precision=0.0381 f-measure=0.0635 fallout=0.1551 ]
+Mean 10 rank [ recall=0.3219 precision=0.0322 f-measure=0.0585 fallout=0.1509 ]
+Mean 15 rank [ recall=0.4937 precision=0.0329 f-measure=0.0617 fallout=0.1454 ]
+
+Test parameter with [ algo=slope, window size=13, delta bin=15, dif=True, edge=True ]
+Mean 5 rank [ recall=0.1562 precision=0.0312 f-measure=0.0521 fallout=0.1562 ]
+Mean 10 rank [ recall=0.3469 precision=0.0347 f-measure=0.0631 fallout=0.1501 ]
+Mean 15 rank [ recall=0.5031 precision=0.0335 f-measure=0.0629 fallout=0.1451 ]
+
+Test parameter with [ algo=slope, window size=13, delta bin=18, dif=False, edge=True ]
+Mean 5 rank [ recall=0.1906 precision=0.0381 f-measure=0.0635 fallout=0.1551 ]
+Mean 10 rank [ recall=0.3219 precision=0.0322 f-measure=0.0585 fallout=0.1509 ]
+Mean 15 rank [ recall=0.4937 precision=0.0329 f-measure=0.0617 fallout=0.1454 ]
+
+Test parameter with [ algo=slope, window size=13, delta bin=18, dif=True, edge=True ]
+Mean 5 rank [ recall=0.1562 precision=0.0312 f-measure=0.0521 fallout=0.1562 ]
+Mean 10 rank [ recall=0.3469 precision=0.0347 f-measure=0.0631 fallout=0.1501 ]
+Mean 15 rank [ recall=0.5031 precision=0.0335 f-measure=0.0629 fallout=0.1451 ]
+
+Test parameter with [ algo=slope, window size=13, delta bin=20, dif=False, edge=True ]
+Mean 5 rank [ recall=0.1906 precision=0.0381 f-measure=0.0635 fallout=0.1551 ]
+Mean 10 rank [ recall=0.3219 precision=0.0322 f-measure=0.0585 fallout=0.1509 ]
+Mean 15 rank [ recall=0.4937 precision=0.0329 f-measure=0.0617 fallout=0.1454 ]
+
+Test parameter with [ algo=slope, window size=13, delta bin=20, dif=True, edge=True ]
+Mean 5 rank [ recall=0.1562 precision=0.0312 f-measure=0.0521 fallout=0.1562 ]
+Mean 10 rank [ recall=0.3469 precision=0.0347 f-measure=0.0631 fallout=0.1501 ]
+Mean 15 rank [ recall=0.5031 precision=0.0335 f-measure=0.0629 fallout=0.1451 ]
+
+Test parameter with [ algo=hog, window size=9, delta bin=15, dif=False, edge=False ]
+Mean 5 rank [ recall=0.2656 precision=0.0531 f-measure=0.0885 fallout=0.1527 ]
+Mean 10 rank [ recall=0.4656 precision=0.0466 f-measure=0.0847 fallout=0.1463 ]
+Mean 15 rank [ recall=0.6375 precision=0.0425 f-measure=0.0797 fallout=0.1407 ]
+
+Test parameter with [ algo=hog, window size=9, delta bin=15, dif=False, edge=True ]
+Mean 5 rank [ recall=0.3187 precision=0.0638 f-measure=0.1063 fallout=0.1510 ]
+Mean 10 rank [ recall=0.5594 precision=0.0559 f-measure=0.1017 fallout=0.1432 ]
+Mean 15 rank [ recall=0.7156 precision=0.0477 f-measure=0.0895 fallout=0.1382 ]
+
+Test parameter with [ algo=hog, window size=9, delta bin=15, dif=True, edge=False ]
+Mean 5 rank [ recall=0.1938 precision=0.0387 f-measure=0.0646 fallout=0.1550 ]
+Mean 10 rank [ recall=0.4219 precision=0.0422 f-measure=0.0767 fallout=0.1477 ]
+Mean 15 rank [ recall=0.6594 precision=0.0440 f-measure=0.0824 fallout=0.1400 ]
+
+Test parameter with [ algo=hog, window size=9, delta bin=15, dif=True, edge=True ]
+Mean 5 rank [ recall=0.3031 precision=0.0606 f-measure=0.1010 fallout=0.1515 ]
+Mean 10 rank [ recall=0.5500 precision=0.0550 f-measure=0.1000 fallout=0.1435 ]
+Mean 15 rank [ recall=0.6719 precision=0.0448 f-measure=0.0840 fallout=0.1396 ]
+
+Test parameter with [ algo=hog, window size=9, delta bin=18, dif=False, edge=False ]
+Mean 5 rank [ recall=0.2656 precision=0.0531 f-measure=0.0885 fallout=0.1527 ]
+Mean 10 rank [ recall=0.4656 precision=0.0466 f-measure=0.0847 fallout=0.1463 ]
+Mean 15 rank [ recall=0.6375 precision=0.0425 f-measure=0.0797 fallout=0.1407 ]
+
+Test parameter with [ algo=hog, window size=9, delta bin=18, dif=False, edge=True ]
+Mean 5 rank [ recall=0.3187 precision=0.0638 f-measure=0.1063 fallout=0.1510 ]
+Mean 10 rank [ recall=0.5594 precision=0.0559 f-measure=0.1017 fallout=0.1432 ]
+Mean 15 rank [ recall=0.7156 precision=0.0477 f-measure=0.0895 fallout=0.1382 ]
+
+Test parameter with [ algo=hog, window size=9, delta bin=18, dif=True, edge=False ]
+Mean 5 rank [ recall=0.1938 precision=0.0387 f-measure=0.0646 fallout=0.1550 ]
+Mean 10 rank [ recall=0.4219 precision=0.0422 f-measure=0.0767 fallout=0.1477 ]
+Mean 15 rank [ recall=0.6594 precision=0.0440 f-measure=0.0824 fallout=0.1400 ]
+
+Test parameter with [ algo=hog, window size=9, delta bin=18, dif=True, edge=True ]
+Mean 5 rank [ recall=0.3031 precision=0.0606 f-measure=0.1010 fallout=0.1515 ]
+Mean 10 rank [ recall=0.5500 precision=0.0550 f-measure=0.1000 fallout=0.1435 ]
+Mean 15 rank [ recall=0.6719 precision=0.0448 f-measure=0.0840 fallout=0.1396 ]
+
+Test parameter with [ algo=hog, window size=9, delta bin=20, dif=False, edge=False ]
+Mean 5 rank [ recall=0.2656 precision=0.0531 f-measure=0.0885 fallout=0.1527 ]
+Mean 10 rank [ recall=0.4656 precision=0.0466 f-measure=0.0847 fallout=0.1463 ]
+Mean 15 rank [ recall=0.6375 precision=0.0425 f-measure=0.0797 fallout=0.1407 ]
+
+Test parameter with [ algo=hog, window size=9, delta bin=20, dif=False, edge=True ]
+Mean 5 rank [ recall=0.3187 precision=0.0638 f-measure=0.1063 fallout=0.1510 ]
+Mean 10 rank [ recall=0.5594 precision=0.0559 f-measure=0.1017 fallout=0.1432 ]
+Mean 15 rank [ recall=0.7156 precision=0.0477 f-measure=0.0895 fallout=0.1382 ]
+
+Test parameter with [ algo=hog, window size=9, delta bin=20, dif=True, edge=False ]
+Mean 5 rank [ recall=0.1938 precision=0.0387 f-measure=0.0646 fallout=0.1550 ]
+Mean 10 rank [ recall=0.4219 precision=0.0422 f-measure=0.0767 fallout=0.1477 ]
+Mean 15 rank [ recall=0.6594 precision=0.0440 f-measure=0.0824 fallout=0.1400 ]
+
+Test parameter with [ algo=hog, window size=9, delta bin=20, dif=True, edge=True ]
+Mean 5 rank [ recall=0.3031 precision=0.0606 f-measure=0.1010 fallout=0.1515 ]
+Mean 10 rank [ recall=0.5500 precision=0.0550 f-measure=0.1000 fallout=0.1435 ]
+Mean 15 rank [ recall=0.6719 precision=0.0448 f-measure=0.0840 fallout=0.1396 ]
+
+Test parameter with [ algo=hog, window size=11, delta bin=15, dif=False, edge=False ]
+Mean 5 rank [ recall=0.3125 precision=0.0625 f-measure=0.1042 fallout=0.1512 ]
+Mean 10 rank [ recall=0.5219 precision=0.0522 f-measure=0.0949 fallout=0.1445 ]
+Mean 15 rank [ recall=0.6875 precision=0.0458 f-measure=0.0859 fallout=0.1391 ]
+
+Test parameter with [ algo=hog, window size=11, delta bin=15, dif=False, edge=True ]
+Mean 5 rank [ recall=0.4281 precision=0.0856 f-measure=0.1427 fallout=0.1475 ]
+Mean 10 rank [ recall=0.6281 precision=0.0628 f-measure=0.1142 fallout=0.1410 ]
+Mean 15 rank [ recall=0.7438 precision=0.0496 f-measure=0.0930 fallout=0.1373 ]
+
+Test parameter with [ algo=hog, window size=11, delta bin=15, dif=True, edge=False ]
+Mean 5 rank [ recall=0.1594 precision=0.0319 f-measure=0.0531 fallout=0.1561 ]
+Mean 10 rank [ recall=0.4000 precision=0.0400 f-measure=0.0727 fallout=0.1484 ]
+Mean 15 rank [ recall=0.6781 precision=0.0452 f-measure=0.0848 fallout=0.1394 ]
+
+Test parameter with [ algo=hog, window size=11, delta bin=15, dif=True, edge=True ]
+Mean 5 rank [ recall=0.3344 precision=0.0669 f-measure=0.1115 fallout=0.1505 ]
+Mean 10 rank [ recall=0.5344 precision=0.0534 f-measure=0.0972 fallout=0.1441 ]
+Mean 15 rank [ recall=0.7000 precision=0.0467 f-measure=0.0875 fallout=0.1387 ]
+
+Test parameter with [ algo=hog, window size=11, delta bin=18, dif=False, edge=False ]
+Mean 5 rank [ recall=0.3125 precision=0.0625 f-measure=0.1042 fallout=0.1512 ]
+Mean 10 rank [ recall=0.5219 precision=0.0522 f-measure=0.0949 fallout=0.1445 ]
+Mean 15 rank [ recall=0.6875 precision=0.0458 f-measure=0.0859 fallout=0.1391 ]
+
+Test parameter with [ algo=hog, window size=11, delta bin=18, dif=False, edge=True ]
+Mean 5 rank [ recall=0.4281 precision=0.0856 f-measure=0.1427 fallout=0.1475 ]
+Mean 10 rank [ recall=0.6281 precision=0.0628 f-measure=0.1142 fallout=0.1410 ]
+Mean 15 rank [ recall=0.7438 precision=0.0496 f-measure=0.0930 fallout=0.1373 ]
+
+Test parameter with [ algo=hog, window size=11, delta bin=18, dif=True, edge=False ]
+Mean 5 rank [ recall=0.1594 precision=0.0319 f-measure=0.0531 fallout=0.1561 ]
+Mean 10 rank [ recall=0.4000 precision=0.0400 f-measure=0.0727 fallout=0.1484 ]
+Mean 15 rank [ recall=0.6781 precision=0.0452 f-measure=0.0848 fallout=0.1394 ]
+
+Test parameter with [ algo=hog, window size=11, delta bin=18, dif=True, edge=True ]
+Mean 5 rank [ recall=0.3344 precision=0.0669 f-measure=0.1115 fallout=0.1505 ]
+Mean 10 rank [ recall=0.5344 precision=0.0534 f-measure=0.0972 fallout=0.1441 ]
+Mean 15 rank [ recall=0.7000 precision=0.0467 f-measure=0.0875 fallout=0.1387 ]
+
+Test parameter with [ algo=hog, window size=11, delta bin=20, dif=False, edge=False ]
+Mean 5 rank [ recall=0.3125 precision=0.0625 f-measure=0.1042 fallout=0.1512 ]
+Mean 10 rank [ recall=0.5219 precision=0.0522 f-measure=0.0949 fallout=0.1445 ]
+Mean 15 rank [ recall=0.6875 precision=0.0458 f-measure=0.0859 fallout=0.1391 ]
+
+Test parameter with [ algo=hog, window size=11, delta bin=20, dif=False, edge=True ]
+Mean 5 rank [ recall=0.4281 precision=0.0856 f-measure=0.1427 fallout=0.1475 ]
+Mean 10 rank [ recall=0.6281 precision=0.0628 f-measure=0.1142 fallout=0.1410 ]
+Mean 15 rank [ recall=0.7438 precision=0.0496 f-measure=0.0930 fallout=0.1373 ]
+
+Test parameter with [ algo=hog, window size=11, delta bin=20, dif=True, edge=False ]
+Mean 5 rank [ recall=0.1594 precision=0.0319 f-measure=0.0531 fallout=0.1561 ]
+Mean 10 rank [ recall=0.4000 precision=0.0400 f-measure=0.0727 fallout=0.1484 ]
+Mean 15 rank [ recall=0.6781 precision=0.0452 f-measure=0.0848 fallout=0.1394 ]
+
+Test parameter with [ algo=hog, window size=11, delta bin=20, dif=True, edge=True ]
+Mean 5 rank [ recall=0.3344 precision=0.0669 f-measure=0.1115 fallout=0.1505 ]
+Mean 10 rank [ recall=0.5344 precision=0.0534 f-measure=0.0972 fallout=0.1441 ]
+Mean 15 rank [ recall=0.7000 precision=0.0467 f-measure=0.0875 fallout=0.1387 ]
+
+Test parameter with [ algo=hog, window size=13, delta bin=15, dif=False, edge=False ]
+Mean 5 rank [ recall=0.3156 precision=0.0631 f-measure=0.1052 fallout=0.1511 ]
+Mean 10 rank [ recall=0.5313 precision=0.0531 f-measure=0.0966 fallout=0.1442 ]
+Mean 15 rank [ recall=0.7094 precision=0.0473 f-measure=0.0887 fallout=0.1384 ]
+
+Test parameter with [ algo=hog, window size=13, delta bin=15, dif=False, edge=True ]
+Mean 5 rank [ recall=0.3125 precision=0.0625 f-measure=0.1042 fallout=0.1512 ]
+Mean 10 rank [ recall=0.5594 precision=0.0559 f-measure=0.1017 fallout=0.1432 ]
+Mean 15 rank [ recall=0.7344 precision=0.0490 f-measure=0.0918 fallout=0.1376 ]
+
+Test parameter with [ algo=hog, window size=13, delta bin=15, dif=True, edge=False ]
+Mean 5 rank [ recall=0.1875 precision=0.0375 f-measure=0.0625 fallout=0.1552 ]
+Mean 10 rank [ recall=0.4531 precision=0.0453 f-measure=0.0824 fallout=0.1467 ]
+Mean 15 rank [ recall=0.7094 precision=0.0473 f-measure=0.0887 fallout=0.1384 ]
+
+Test parameter with [ algo=hog, window size=13, delta bin=15, dif=True, edge=True ]
+Mean 5 rank [ recall=0.3594 precision=0.0719 f-measure=0.1198 fallout=0.1497 ]
+Mean 10 rank [ recall=0.5656 precision=0.0566 f-measure=0.1028 fallout=0.1430 ]
+Mean 15 rank [ recall=0.7000 precision=0.0467 f-measure=0.0875 fallout=0.1387 ]
+
+Test parameter with [ algo=hog, window size=13, delta bin=18, dif=False, edge=False ]
+Mean 5 rank [ recall=0.3156 precision=0.0631 f-measure=0.1052 fallout=0.1511 ]
+Mean 10 rank [ recall=0.5313 precision=0.0531 f-measure=0.0966 fallout=0.1442 ]
+Mean 15 rank [ recall=0.7094 precision=0.0473 f-measure=0.0887 fallout=0.1384 ]
+
+Test parameter with [ algo=hog, window size=13, delta bin=18, dif=False, edge=True ]
+Mean 5 rank [ recall=0.3125 precision=0.0625 f-measure=0.1042 fallout=0.1512 ]
+Mean 10 rank [ recall=0.5594 precision=0.0559 f-measure=0.1017 fallout=0.1432 ]
+Mean 15 rank [ recall=0.7344 precision=0.0490 f-measure=0.0918 fallout=0.1376 ]
+
+Test parameter with [ algo=hog, window size=13, delta bin=18, dif=True, edge=False ]
+Mean 5 rank [ recall=0.1875 precision=0.0375 f-measure=0.0625 fallout=0.1552 ]
+Mean 10 rank [ recall=0.4531 precision=0.0453 f-measure=0.0824 fallout=0.1467 ]
+Mean 15 rank [ recall=0.7094 precision=0.0473 f-measure=0.0887 fallout=0.1384 ]
+
+Test parameter with [ algo=hog, window size=13, delta bin=18, dif=True, edge=True ]
+Mean 5 rank [ recall=0.3594 precision=0.0719 f-measure=0.1198 fallout=0.1497 ]
+Mean 10 rank [ recall=0.5656 precision=0.0566 f-measure=0.1028 fallout=0.1430 ]
+Mean 15 rank [ recall=0.7000 precision=0.0467 f-measure=0.0875 fallout=0.1387 ]
+
+Test parameter with [ algo=hog, window size=13, delta bin=20, dif=False, edge=False ]
+Mean 5 rank [ recall=0.3156 precision=0.0631 f-measure=0.1052 fallout=0.1511 ]
+Mean 10 rank [ recall=0.5313 precision=0.0531 f-measure=0.0966 fallout=0.1442 ]
+Mean 15 rank [ recall=0.7094 precision=0.0473 f-measure=0.0887 fallout=0.1384 ]
+
+Test parameter with [ algo=hog, window size=13, delta bin=20, dif=False, edge=True ]
+Mean 5 rank [ recall=0.3125 precision=0.0625 f-measure=0.1042 fallout=0.1512 ]
+Mean 10 rank [ recall=0.5594 precision=0.0559 f-measure=0.1017 fallout=0.1432 ]
+Mean 15 rank [ recall=0.7344 precision=0.0490 f-measure=0.0918 fallout=0.1376 ]
+
+Test parameter with [ algo=hog, window size=13, delta bin=20, dif=True, edge=False ]
+Mean 5 rank [ recall=0.1875 precision=0.0375 f-measure=0.0625 fallout=0.1552 ]
+Mean 10 rank [ recall=0.4531 precision=0.0453 f-measure=0.0824 fallout=0.1467 ]
+Mean 15 rank [ recall=0.7094 precision=0.0473 f-measure=0.0887 fallout=0.1384 ]
+
+Test parameter with [ algo=hog, window size=13, delta bin=20, dif=True, edge=True ]
+Mean 5 rank [ recall=0.3594 precision=0.0719 f-measure=0.1198 fallout=0.1497 ]
+Mean 10 rank [ recall=0.5656 precision=0.0566 f-measure=0.1028 fallout=0.1430 ]
+Mean 15 rank [ recall=0.7000 precision=0.0467 f-measure=0.0875 fallout=0.1387 ]
+
+best mean all rank recall = 0.600000 parameter [ algo=hog, window size=11, delta bin=15, dif=False, edge=True ]

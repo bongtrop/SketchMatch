@@ -89,7 +89,7 @@ def slopeFunc(window, chars):
 
     return ""
 
-def extract(im, ws=10, step=0, delta_bin=18, chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRETUVWXYZ", algo="hog", dif=False, edge=False):
+def extract(im, ws=10, step=0, delta_bin=18, chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRETUVWXYZ", algo="hog", dif=False, edge=False, edge_parameter=[100, 200]):
     allalgo = ["hog", "slope"]
     assert algo in allalgo, "algo false"
     assert algo!="slope" or edge!=False, "slop use with edge only"
@@ -97,7 +97,7 @@ def extract(im, ws=10, step=0, delta_bin=18, chars="abcdefghijklmnopqrstuvwxyzAB
     func = {"hog": hogFunc, "slope": slopeFunc}
 
     if edge:
-        im = cv2.Canny(im,100,200)
+        im = cv2.Canny(im, edge_parameter[0], edge_parameter[1])
 
     h, w = im.shape
     res = ""

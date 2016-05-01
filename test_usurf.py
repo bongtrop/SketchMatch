@@ -10,10 +10,10 @@ from operator import itemgetter
 import copy
 import json
 
-octaves = [3]
-periods = [4]
+octaves = [4]
+periods = [5]
 scales = [1.2]
-hessians = [0.4]
+hessians = [0.3, 0.4, 0.5]
 
 f = open('testset/data', 'r')
 log = open('test_res_usurf', 'w')
@@ -27,7 +27,6 @@ try:
                     msg = "Test parameter with [ octave=%d, period=%d, scale=%f, hessian=%f]" % (octave, period, scale, hessian)
                     print msg
                     log.write(msg+"\n")
-                    '''
                     f = open('dataset/data', 'r')
 
                     lines = f.readlines()
@@ -55,11 +54,10 @@ try:
                         json.dump(datas_raw, outfile)
 
                     '''
-
                     with open('data_usurf.json', 'r') as infile:
                         datas_raw = json.load(infile)
+                    '''
 
-                    print "[Done] Database"
 
                     f = open('testset/data', 'r')
 
@@ -79,8 +77,6 @@ try:
                         minisid = sid[-3:]
                         sex = words[1]
                         name = words[2]+" "+words[3]
-
-                        print sid
 
                         c5 = 0
                         c10 = 0

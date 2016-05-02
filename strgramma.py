@@ -89,7 +89,7 @@ def slopeFunc(window, chars):
 
     return ""
 
-def extract(im, ws=10, step=0, delta_bin=18, chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRETUVWXYZ", algo="hog", dif=False, edge=False, edge_parameter=[100, 200]):
+def extract(im, ws=11, step=0, delta_bin=18, chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRETUVWXYZ", algo="hog", dif=False, edge=True, edge_parameter=[100, 200]):
     allalgo = ["hog", "slope"]
     assert algo in allalgo, "algo false"
     assert algo!="slope" or edge!=False, "slop use with edge only"

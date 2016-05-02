@@ -88,6 +88,11 @@ Mean 5 rank [ recall=0.5656 precision=0.1131 f-measure=0.1885 fallout=0.1430 ]
 Mean 10 rank [ recall=0.7625 precision=0.0762 f-measure=0.1386 fallout=0.1367 ]
 Mean 15 rank [ recall=0.8500 precision=0.0567 f-measure=0.1062 fallout=0.1339 ]
 
+Test parameter with [ octave=4, period=4, scale=1.200000, hessian=0.300000]
+Mean 5 rank [ recall=0.8031 precision=0.1606 f-measure=0.2677 fallout=0.1354 ]
+Mean 10 rank [ recall=0.8781 precision=0.0878 f-measure=0.1597 fallout=0.1330 ]
+Mean 15 rank [ recall=0.9188 precision=0.0613 f-measure=0.1148 fallout=0.1317 ]
+
 Test parameter with [ octave=4, period=4, scale=1.200000, hessian=0.400000]
 Mean 5 rank [ recall=0.7250 precision=0.1450 f-measure=0.2417 fallout=0.1379 ]
 Mean 10 rank [ recall=0.8312 precision=0.0831 f-measure=0.1511 fallout=0.1345 ]

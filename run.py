@@ -24,7 +24,7 @@ from twisted.web.server import Site
 from twisted.web.resource import Resource
 from twisted.internet import reactor
 
-
+segments = ["eyebrows", "eyes", "jaw", "mouth", "nose"]
 
 def gen_random_name(l):
    return ''.join([random.choice('0123456789ABCDEF') for x in range(l)])
@@ -60,19 +60,62 @@ class IdentiFace(Resource):
             headers = self.headers,
             environ = {'REQUEST_METHOD':'POST', 'CONTENT_TYPE': self.headers['content-type']})
 
-        if img.has_key("image") and img.has_key("sex") and len(img["image"].value)>0 and img.has_key("algo"):
+        full = ""
+        jaw = ""
+        eyebrows = ""
+        eyes = ""
+        nose = ""
+        mouth = ""
+
+        if img.has_key("full"):
             filename = gen_random_name(32)+'.jpg'
-            sex = img["sex"].value
-
             out = open('logs/'+filename, 'wb')
-            out.write(img["image"].value)
+            out.write(img["full"].value)
             out.close()
+            full = filename
 
+        if img.has_key("jaw"):
+            filename = gen_random_name(32)+'.jpg'
+            out = open('logs/'+filename, 'wb')
+            out.write(img["jaw"].value)
+            out.close()
+            jaw = filename
+
+        if img.has_key("eyebrows"):
+            filename = gen_random_name(32)+'.jpg'
+            out = open('logs/'+filename, 'wb')
+            out.write(img["eyebrows"].value)
+            out.close()
+            eyebrows = filename
+
+        if img.has_key("eyes"):
+            filename = gen_random_name(32)+'.jpg'
+            out = open('logs/'+filename, 'wb')
+            out.write(img["eyes"].value)
+            out.close()
+            eyes = filename
+
+        if img.has_key("nose"):
+            filename = gen_random_name(32)+'.jpg'
+            out = open('logs/'+filename, 'wb')
+            out.write(img["nose"].value)
+            out.close()
+            nose = filename
+
+        if img.has_key("mouth"):
+            filename = gen_random_name(32)+'.jpg'
+            out = open('logs/'+filename, 'wb')
+            out.write(img["mouth"].value)
+            out.close()
+            mouth = filename
+
+        if img.has_key("sex") and img.has_key("algo"):
+
+            sex = img["sex"].value
             datas = dataset.get(filter={'sex': sex})
 
-            im = tool.imread('logs/'+filename)
-
-            if img["algo"].value=="usurf":
+            if img["algo"].value=="usurf" and full!="":
+                im = tool.imread('logs/'+full)
                 keypoints = usurf.detect(im)
                 usurf.extract(im, keypoints)
 
@@ -84,15 +127,25 @@ class IdentiFace(Resource):
                     else:
                         data["point"] = 0.0
 
-            else:
-                s = strgramma.extract(im)
-                ls = len(s)
+            elif img["algo"].value=="strgramma" and jaw!="" and eyebrows!="" and eyes!="" and nose!="" and mouth!="":
+                strings = {}
+                strings["jaw"] = strgramma.extract(tool.imread('logs/'+jaw))
+                strings["eyebrows"] = strgramma.extract(tool.imread('logs/'+eyebrows))
+                strings["eyes"] = strgramma.extract(tool.imread('logs/'+eyes))
+                strings["nose"] = strgramma.extract(tool.imread('logs/'+nose))
+                strings["mouth"] = strgramma.extract(tool.imread('logs/'+mouth))
+
                 for data in datas:
                     if data["dtype"]=="strgramma":
-                        data["point"] = ls*1.0/strgramma.dist(s, data["string"])
+                        data["point"] = 0.0
+                        for segment in segments:
+                            data["point"]+=strgramma.dist(strings[segment], data["strings"][segment])
+
+                        data["point"] = 1.0/data["point"]
                     else:
                         data["point"] = 0.0
-
+            else:
+                return json.dumps({"status": "fail", "detail": "Wrong Parameter"})
 
             datas = sorted(datas, key=itemgetter('point'), reverse=True)
 

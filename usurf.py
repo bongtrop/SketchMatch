@@ -151,7 +151,7 @@ def nonmaxima(octaves, th = 0.6):
 
 	return res
 
-def detect(im, octave=3, period=4, scale=1.2, hessian=0.4):
+def detect(im, octave=2, period=4, scale=1.2, hessian=0.3):
 	imint = imintegral(np.array(im))
 	s = scale2size(scale)
 	add = 6

@@ -127,7 +127,7 @@ class IdentiFace(Resource):
                     else:
                         data["point"] = 0.0
 
-            elif img["algo"].value=="strgramma" and jaw!="" and eyebrows!="" and eyes!="" and nose!="" and mouth!="":
+            elif img["algo"].value=="strgrammar" and jaw!="" and eyebrows!="" and eyes!="" and nose!="" and mouth!="":
                 strings = {}
                 strings["jaw"] = strgramma.extract(tool.imread('logs/'+jaw))
                 strings["eyebrows"] = strgramma.extract(tool.imread('logs/'+eyebrows))

@@ -168,7 +168,7 @@ class Image(Resource):
     def render_GET(self, request):
         request.setHeader("content-type", "image/jpeg")
         try:
-            f = open("dataset/"+self.id+".jpg", "rb")
+            f = open("dataset/raw/"+self.id+".jpg", "rb")
             return f.read()
         except Exception as error:
             return ""

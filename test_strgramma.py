@@ -12,10 +12,10 @@ from operator import itemgetter
 segments = ["eyebrows", "eyes", "jaw", "mouth", "nose"]
 
 algos = ["slope", "hog"]
-wss = [9, 11, 13]
+wss = [3, 4, 5]
 delta_bins = [15, 18, 20]
-difs = [False, True]
-edges = [False, True]
+difs = [False]
+edges = [True]
 
 log = open("test_res_strgramma", "w")
 best_recall = 0.0

@@ -13,7 +13,7 @@ import json
 octaves = [4]
 periods = [5]
 scales = [1.2]
-hessians = [0.3, 0.4, 0.5]
+hessians = [0.4, 0.5]
 
 f = open('testset/data', 'r')
 log = open('test_res_usurf', 'w')
